@@ -1,0 +1,52 @@
+
+version: '3.4'
+
+services:
+  adrian_DevBatch_gateway:
+    image: inductiveautomation/ignition:latest
+    ports:
+      - "11088:8088"
+      - "11043:8043"
+      - "11060:8060"
+    
+    # env_file: ignition.env  # optionally specify variables in a file, or using `environment:` below
+    environment:
+      - ACCEPT_IGNITION_EULA=Y
+      - GATEWAY_ADMIN_USERNAME=admin
+      - GATEWAY_ADMIN_PASSWORD=admin
+      - IGNITION_EDITION=full
+      #- IGNITION_LICENSE_KEY =
+      #- IGNITION_ACTIVATION_TOKEN = 
+      - TZ=America/New_York
+
+    command: 
+      -n adrian-batch-dev-gateway 
+      -a 127.0.0.1 
+      -h 11088 
+      -s 11043
+      
+   
+    volumes:
+      # - ./gateway_backup.gwbk:/restore.gwbk
+      - adrian_DevBatch_data:/usr/local/bin/ignition/data
+  
+     
+  
+  adrian_ignitionDev_db:
+    image: mariadb:10.5.8
+    ports:
+     - "3311:3306"
+    restart: always
+    environment: 
+      - MYSQL_ROOT_PASSWORD=ignition
+      - MYSQL_DATABASE=ignition
+      
+    volumes:
+      - adrian_ignitionDevBatch_db:/var/lib/mysql
+    
+
+
+volumes: 
+  adrian_DevBatch_data: 
+  adrian_ignitionDevBatch_db: 
+  
