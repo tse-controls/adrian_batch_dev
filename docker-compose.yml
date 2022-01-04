@@ -18,6 +18,8 @@ services:
       #- IGNITION_LICENSE_KEY =
       #- IGNITION_ACTIVATION_TOKEN = 
       - TZ=America/New_York
+      - PUID=1000
+      - PGID=1000
 
     command: 
       -n adrian-batch-dev-gateway 
