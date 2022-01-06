@@ -29,7 +29,7 @@ services:
    
     volumes:
       # - ./gateway_backup.gwbk:/restore.gwbk
-      - adrian_DevBatch_data:/usr/local/bin/ignition/data
+      - ./adrian_DevBatch_data:/usr/local/bin/ignition/data
   
      
   
@@ -43,11 +43,5 @@ services:
       - MYSQL_DATABASE=ignition
       
     volumes:
-      - adrian_ignitionDevBatch_db:/var/lib/mysql
+      - ./adrian_ignitionDevBatch_db:/var/lib/mysql
     
-
-
-volumes: 
-  adrian_DevBatch_data: 
-  adrian_ignitionDevBatch_db: 
-  
