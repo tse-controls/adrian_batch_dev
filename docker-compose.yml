@@ -3,7 +3,8 @@ version: '3.4'
 
 services:
   adrian_DevBatch_gateway:
-    image: inductiveautomation/ignition:latest
+    image: inductiveautomation/ignition:8.1.12
+    ports:
       - "11088:8088"
       - "11043:8043"
       - "11060:8060"
