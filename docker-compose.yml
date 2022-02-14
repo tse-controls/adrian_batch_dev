@@ -3,7 +3,7 @@ version: '3.4'
 
 services:
   adrian_DevBatch_gateway:
-    image: inductiveautomation/ignition:8.1.12
+    image: inductiveautomation/ignition:latest
     ports:
       - "11088:8088"
       - "11043:8043"
@@ -34,7 +34,7 @@ services:
      
   
   adrian_ignitionDev_db:
-    image: mariadb:10.5.8
+    image: mariadb:latest
     ports:
      - "3311:3306"
     restart: always
