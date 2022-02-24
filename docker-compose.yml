@@ -44,7 +44,16 @@ services:
       
     volumes:
       - adrian_ignitionDevBatch_db:/var/lib/mysql
-      
+
+
+  adminer_container:
+        image: adminer:latest
+        environment: 
+            ADMINER_DEFAULT_SERVER: adrian_ignitionDev_db
+            ADMINER_DESIGN: dracula # galkaev
+        ports: 
+          - 11080:8080
+
 volumes: 
   adrian_DevBatch_data: 
   adrian_ignitionDevBatch_db: 
